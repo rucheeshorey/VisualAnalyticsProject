@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>McDonalds Nutritional Facts</title>
+    <!-- Latest compiled and minified bootstrap CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- Master Style -->
+    <link rel="stylesheet" href="Stylesheets/master.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Custom Scripts -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <%-- Metadata for bootstrap --%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <form runat="server">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+        <asp:ContentPlaceHolder id="PageContent" runat="server"></asp:ContentPlaceHolder>
+    </div>
+    <div class="col-xs-1"></div>
+        
+    </form>
+</body>
+</html>

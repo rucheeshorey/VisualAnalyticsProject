@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "VisualAnalyticsProject", "..\..\WebSites\VisualAnalyticsProject\", "{0CA16DB9-8E61-4E63-BE72-DBEC7F2389A0}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "VisualAnalyticsProject", "VisualAnalyticsProject\", "{0CA16DB9-8E61-4E63-BE72-DBEC7F2389A0}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51156"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\VisualAnalyticsProject\"
+		Debug.AspNetCompiler.PhysicalPath = "VisualAnalyticsProject\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51156\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_51156"
-		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\VisualAnalyticsProject\"
+		Release.AspNetCompiler.PhysicalPath = "VisualAnalyticsProject\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51156\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51156"
-		SlnRelativePath = "..\..\WebSites\VisualAnalyticsProject\"
+		SlnRelativePath = "VisualAnalyticsProject\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

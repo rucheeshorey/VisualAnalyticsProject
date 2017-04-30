@@ -1,0 +1,14 @@
+﻿body {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+a, a:active, a:any-link, a:visited, a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+*:focus {
+    outline: none;
+}
