@@ -32,15 +32,62 @@ public partial class _Default : System.Web.UI.Page
             dialog.ID = "item" + menuItem[ 0 ] + "dialog";
             dialog.ClientIDMode = ClientIDMode.Static;
             dialog.Attributes["title"] = menuItem[ 2 ] + " Nutritional Information";
-            dialog.InnerHtml = menuItem[2];
             anchor.Controls.Add( dialog );
+
+            //Chart
+            HtmlGenericControl chart = new HtmlGenericControl("div");
+            chart.ID = "item" + menuItem[0] + "chart";
+            chart.ClientIDMode = ClientIDMode.Static;
+            chart.Attributes["style"] = "width: 100%; height: 100%;";
+            dialog.Controls.Add(chart);
 
             //JS
             HtmlGenericControl js = new HtmlGenericControl("script");
-            js.InnerHtml = "$(function() { $(\"#" + dialog.ID + "\").dialog({ autoOpen: false, width: 'auto', height: 'auto' }); $(\"#" + anchor.ID + "\").click(function() { $(\"#" + dialog.ID + "\").dialog(\"open\"); }); }); ";
+            js.InnerHtml = "$(function() { $(\"#" + dialog.ID + "\").dialog({ autoOpen: false, width: '50%', height: '600' }); $(\"#" + anchor.ID + "\").click(function() { $(\"#" + dialog.ID + "\").dialog(\"open\"); }); }); ";
             Page.Header.Controls.Add(js);
 
-            //TODO: Chart
+            //Chart JS
+            HtmlGenericControl chartJs = new HtmlGenericControl("script");
+            chartJs.InnerHtml = @"
+            var chart = AmCharts.makeChart( '" + chart.ID + @"', {
+              'type': 'pie',
+              'theme': 'light',
+              'dataProvider': [ {
+                'nutrient': 'Saturated Fat',
+                'grams': " + menuItem[8] + @"
+              }, {
+                'nutrient': 'Trans Fat',
+                'grams': " + menuItem[10] + @"
+              }, {
+                'nutrient': 'Cholestrol',
+                'grams': " + menuItem[11] + @"
+              }, {
+                'nutrient': 'Sodium',
+                'grams': " + menuItem[13] + @"
+              }, {
+                'nutrient': 'Carbohydrates',
+                'grams': " + menuItem[15] + @"
+              }, {
+                'nutrient': 'Dietary Fiber',
+                'grams': " + menuItem[17] + @"
+              }, {
+                'nutrient': 'Sugars',
+                'grams': " + menuItem[19] + @"
+              }, {
+                'nutrient': 'Protein',
+                'grams': " + menuItem[20] + @"
+              } ],
+              'valueField': 'grams',
+              'titleField': 'nutrient',
+               'balloon':{
+               'fixedPosition':true
+              },
+             'export': {
+                'enabled': false
+              }
+            } );
+            ";
+            Page.Header.Controls.Add(chartJs);
 
             if ( menuItem[ 1 ].Equals( "Breakfast" ) )
             {
