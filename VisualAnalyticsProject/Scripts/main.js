@@ -22,5 +22,4 @@
     $("#sidesubsectionheading").click(function () {
         $("#sidesubsection").slideToggle();
     });
-    
 });

@@ -21,24 +21,18 @@ public partial class _Default : System.Web.UI.Page
         while ( ( menuItem = reader.GetCSVLine() ) != null )
         {
             //Anchor
-            HtmlGenericControl anchor = new HtmlGenericControl( "a" );
-            anchor.Attributes["rel"] = "modal:open";
-            anchor.Attributes["href"] = "#item" + menuItem[ 0 ] + "modal";
+            HtmlGenericControl anchor = new HtmlGenericControl( "div" );
             anchor.Attributes[ "class" ] = "col-xs-3 menuitem";
+            anchor.ID = "item" + menuItem[0] + "anchor";
+            anchor.ClientIDMode = ClientIDMode.Static;
             anchor.InnerText = menuItem[ 2 ];
 
-            //Modal
-            HtmlGenericControl modal = new HtmlGenericControl( "div" );
-            modal.Attributes[ "class" ] = "menuitemmodal";
-            modal.Style.Add( "display", "none" );
-            modal.ID = "item" + menuItem[ 0 ] + "modal";
-            modal.ClientIDMode = ClientIDMode.Static;
+            //Dialog
+            HtmlGenericControl js = new HtmlGenericControl("script");
+            js.InnerHtml = "$j(\"#" + anchor.ID + "\").click( function() { alert( 'you clicked on: " + menuItem[ 2 ] + "' ); } );";
+            Page.Header.Controls.Add(js);
 
             //TODO: Chart
-            
-
-
-            anchor.Controls.Add( modal );
 
             if ( menuItem[ 1 ].Equals( "Breakfast" ) )
             {

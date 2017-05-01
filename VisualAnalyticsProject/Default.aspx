@@ -3,12 +3,24 @@
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <link rel="stylesheet" href="Stylesheets/main.css" />
     <script type="text/javascript" src="Scripts/main.js"></script>
-    <script src="Scripts/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" href="Stylesheets/jquery.modal.min.css" type="text/css" media="screen" />
+    <script src="Scripts/dialog.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script>
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+            });
+            $("#clickme").click(function () {
+                $("#dialog").dialog("open");
+            });
+        });
+    </script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="PageContent">
     <div id="content">
+        <div id="clickme">CLICK ME</div>
+        <div id="dialog">This is a dialog box.</div>
         <div class="section" id="burgersection">
             <div class="subsectionheading" id="burgersubsectionheading">Burgers</div>
             <div runat="server" class="subsection" id="burgersubsection"></div>
