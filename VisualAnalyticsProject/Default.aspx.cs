@@ -28,8 +28,16 @@ public partial class _Default : System.Web.UI.Page
             anchor.InnerText = menuItem[ 2 ];
 
             //Dialog
+            HtmlGenericControl dialog = new HtmlGenericControl( "div" );
+            dialog.ID = "item" + menuItem[ 0 ] + "dialog";
+            dialog.ClientIDMode = ClientIDMode.Static;
+            dialog.Attributes["title"] = menuItem[ 2 ] + " Nutritional Information";
+            dialog.InnerHtml = menuItem[2];
+            anchor.Controls.Add( dialog );
+
+            //JS
             HtmlGenericControl js = new HtmlGenericControl("script");
-            js.InnerHtml = "$j(\"#" + anchor.ID + "\").click( function() { alert( 'you clicked on: " + menuItem[ 2 ] + "' ); } );";
+            js.InnerHtml = "$(function() { $(\"#" + dialog.ID + "\").dialog({ autoOpen: false, width: 'auto', height: 'auto' }); $(\"#" + anchor.ID + "\").click(function() { $(\"#" + dialog.ID + "\").dialog(\"open\"); }); }); ";
             Page.Header.Controls.Add(js);
 
             //TODO: Chart
